@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake's by Sofi — Um bolo, mil jeitos de celebrar</title>
+    <meta name="description"
+        content="Bolos artesanais personalizados para transformar momentos em celebrações deliciosas.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+        :root {
+            --red: #e83e35;
+            --yellow: #ffd45a;
+            --pink: #f4a9c5;
+            --green: #456b50;
+            --brown: #40251f;
+            --cream: #fff8ed;
+            --white: #fffdf8;
+            --ink: #38241f;
+            --muted: #78645d;
+            --radius: 22px;
+            --shadow: 0 14px 35px #40251f12;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        select {
+            font: inherit;
+        }
+
+        .wrap {
+            width: min(1160px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .topbar {
+            background: var(--brown);
+            color: #fff5e8;
+            text-align: center;
+            padding: 9px 12px;
+            font-size: .78rem;
+            letter-spacing: .06em;
+        }
+
+        .topbar b {
+            color: var(--yellow);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #fff8edeb;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #40251f12;
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -.06em;
+            line-height: .9;
+        }
+
+        .logo span {
+            display: block;
+            color: var(--red);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .58rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            margin-top: 7px;
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 27px;
+            font-size: .88rem;
+            font-weight: 600;
+        }
+
+        .navlinks a:hover {
+            color: var(--red);
+        }
+
+        .nav-cta,
+        .btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 13px 20px;
+            background: var(--red);
+            color: white;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            cursor: pointer;
+            transition: transform .2s, background .2s;
+        }
+
+        .nav-cta:hover,
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #c92f29;
+        }
+
+        .btn.secondary {
+            background: var(--yellow);
+            color: var(--brown);
+        }
+
+        .btn.outline {
+            background: transparent;
+            color: var(--brown);
+            border: 1.5px solid #40251f35;
+        }
+
+        .hero {
+            padding: 54px 0 68px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.02fr .98fr;
+            align-items: center;
+            gap: 46px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .eyebrow:before {
+            content: '';
+            width: 23px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.1rem, 6.5vw, 5.8rem);
+            letter-spacing: -.065em;
+            line-height: .98;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--red);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .hero p {
+            max-width: 470px;
+            color: var(--muted);
+            font-size: 1.06rem;
+            line-height: 1.75;
+            margin: 0 0 27px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .micro-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 27px;
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        .avatars {
+            display: flex;
+        }
+
+        .avatars span {
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            border: 2px solid var(--cream);
+            margin-left: -7px;
+            background: var(--pink);
+            display: grid;
+            place-items: center;
+            font-size: .75rem;
+        }
+
+        .avatars span:first-child {
+            margin-left: 0;
+            background: var(--yellow);
+        }
+
+        .hero-art {
+            position: relative;
+            min-height: 500px;
+        }
+
+        .hero-photo {
+            position: absolute;
+            inset: 12px 28px 24px 20px;
+            border-radius: 48% 48% 24px 24px;
+            overflow: hidden;
+            background: #f4a9c5;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-label {
+            position: absolute;
+            right: 0;
+            bottom: 50px;
+            background: var(--yellow);
+            padding: 17px 19px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transform: rotate(4deg);
+        }
+
+        .photo-label small {
+            display: block;
+            font: 600 .7rem 'DM Sans', sans-serif;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .sunburst {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--red);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 800;
+            font-size: .78rem;
+            text-align: center;
+            line-height: 1.25;
+            transform: rotate(12deg);
+            box-shadow: var(--shadow);
+        }
+
+        .scribble {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--green);
+            color: white;
+            border-radius: 18px;
+            padding: 14px 17px;
+            font-size: .85rem;
+            font-weight: 700;
+            transform: rotate(-5deg);
+        }
+
+        .section {
+            padding: 82px 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .section-head h2,
+        .custom-copy h2,
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            line-height: 1.02;
+            letter-spacing: -.055em;
+            margin: 12px 0 0;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            max-width: 390px;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .strip-section {
+            background: var(--yellow);
+            position: relative;
+        }
+
+        .strip-section .eyebrow {
+            color: var(--brown);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .category {
+            background: var(--white);
+            border: 1px solid #40251f12;
+            border-radius: 18px;
+            padding: 20px 15px;
+            min-height: 158px;
+            transition: transform .2s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category .number {
+            font-size: .7rem;
+            letter-spacing: .14em;
+            color: var(--red);
+            font-weight: 800;
+        }
+
+        .category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin: 21px 0 7px;
+        }
+
+        .category p {
+            font-size: .81rem;
+            line-height: 1.5;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .products {
+            background: var(--cream);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 16px;
+        }
+
+        .product-card {
+            height: 100%;
+            min-width: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-img {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            background: var(--yellow);
+            padding: 7px 10px;
+            border-radius: 99px;
+            font-size: .68rem;
+            font-weight: 800;
+        }
+
+        .product-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin: 0 0 9px;
+        }
+
+        .product-body p {
+            font-size: .87rem;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0 0 18px;
+            flex: 1;
+        }
+
+        .text-link {
+            font-size: .84rem;
+            font-weight: 800;
+            color: var(--red);
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .custom {
+            background: var(--pink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .custom-copy p {
+            line-height: 1.7;
+            color: #66464f;
+            max-width: 390px;
+        }
+
+        .custom-note {
+            margin-top: 28px;
+            padding: 16px 18px;
+            border-left: 3px solid var(--red);
+            background: #fff7f7a8;
+            border-radius: 0 12px 12px 0;
+            font-size: .87rem;
+            line-height: 1.55;
+        }
+
+        .builder {
+            background: var(--white);
+            padding: 27px;
+            border-radius: 26px;
+            box-shadow: 0 18px 45px #40251f16;
+        }
+
+        .builder-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .builder-top h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            margin: 0;
+        }
+
+        .step-label {
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--green);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            display: block;
+            font-weight: 800;
+            font-size: .88rem;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .option {
+            position: relative;
+        }
+
+        .option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option span {
+            display: block;
+            border: 1.5px solid #40251f25;
+            border-radius: 12px;
+            padding: 10px 13px;
+            font-size: .83rem;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .option input:checked+span {
+            border-color: var(--red);
+            background: #fff0ec;
+            color: #b92e27;
+            box-shadow: inset 0 0 0 1px var(--red);
+            font-weight: 800;
+        }
+
+        .summary {
+            background: #f8efe4;
+            border-radius: 17px;
+            padding: 18px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .summary small {
+            display: block;
+            color: var(--muted);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .summary h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin: 0 0 5px;
+        }
+
+        .summary p {
+            font-size: .83rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .cake-icon {
+            width: 67px;
+            height: 67px;
+            border-radius: 50%;
+            background: var(--yellow);
+            display: grid;
+            place-items: center;
+            font-size: 2rem;
+        }
+
+        .builder-foot {
+            font-size: .74rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin: 14px 0 0;
+        }
+
+        .gallery {
+            background: var(--green);
+            color: white;
+        }
+
+        .gallery .eyebrow {
+            color: var(--yellow);
+        }
+
+        .gallery .section-head p {
+            color: #e0e8dc;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr .85fr;
+            grid-template-rows: 200px 200px;
+            gap: 13px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 18px;
+            position: relative;
+            background: #6b806c;
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item span {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: #40251fda;
+            color: white;
+            border-radius: 99px;
+            padding: 8px 12px;
+            font-size: .76rem;
+            font-weight: 700;
+        }
+
+        .gallery-foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            margin-top: 25px;
+            color: #e0e8dc;
+            font-size: .9rem;
+        }
+
+        .gallery-foot strong {
+            color: var(--yellow);
+        }
+
+        .final-cta {
+            padding: 75px 0;
+            background: var(--red);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta .eyebrow {
+            color: var(--yellow);
+            justify-content: center;
+        }
+
+        .final-cta .eyebrow:before {
+            display: none;
+        }
+
+        .final-cta h2 {
+            max-width: 700px;
+            margin: 16px auto;
+        }
+
+        .final-cta p {
+            max-width: 530px;
+            margin: 16px auto 25px;
+            line-height: 1.7;
+            color: #ffe5dc;
+        }
+
+        .final-cta .btn {
+            background: var(--yellow);
+            color: var(--brown);
+        }
+
+        .cta-spark {
+            position: absolute;
+            font-size: 3rem;
+            color: var(--yellow);
+            opacity: .8;
+        }
+
+        .spark-one {
+            left: 9%;
+            top: 20%;
+        }
+
+        .spark-two {
+            right: 10%;
+            bottom: 15%;
+        }
+
+        footer {
+            background: var(--brown);
+            color: #f9eadd;
+            padding: 43px 0 22px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 32px;
+        }
+
+        .footer-brand .logo {
+            font-size: 1.7rem;
+        }
+
+        .footer-brand .logo span {
+            color: var(--pink);
+        }
+
+        footer p {
+            font-size: .83rem;
+            line-height: 1.65;
+            color: #cdb8ac;
+            max-width: 300px;
+        }
+
+        footer h4 {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .13em;
+            color: var(--yellow);
+            margin: 4px 0 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+            font-size: .85rem;
+            color: #e7d3c7;
+        }
+
+        footer a:hover {
+            color: var(--yellow);
+        }
+
+        .demo-note {
+            border-top: 1px solid #ffffff20;
+            padding-top: 20px;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .navlinks {
+                gap: 13px;
+            }
+
+            .hero-grid {
+                gap: 24px;
+            }
+
+            .hero-art {
+                min-height: 420px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .custom-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .wrap {
+                width: min(100% - 30px, 520px);
+            }
+
+            .nav {
+                height: auto;
+                min-height: 72px;
+                flex-wrap: wrap;
+                padding: 15px 0;
+            }
+
+            .navlinks {
+                order: 3;
+                width: 100%;
+                overflow-x: auto;
+                padding: 8px 0 3px;
+                gap: 20px;
+            }
+
+            .nav-cta {
+                padding: 10px 13px;
+                font-size: .8rem;
+            }
+
+            .hero {
+                padding: 38px 0 48px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 13vw, 4.7rem);
+            }
+
+            .hero-art {
+                min-height: 360px;
+            }
+
+            .section {
+                padding: 58px 0;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-head p {
+                margin-top: 15px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-img {
+                height: 250px;
+            }
+
+            .custom-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .builder {
+                padding: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 180px);
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 2;
+            }
+
+            .gallery-foot {
+                display: block;
+                line-height: 1.8;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .final-cta {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        Feito com carinho, confeitado com criatividade.
+        <b>Seu momento merece um bolo especial!</b>
+    </div>
+
+    <header>
+        <div class="wrap nav">
+            <a href="#inicio" class="logo">
+                Cake's by Sofi
+                <span>um doce jeito de celebrar</span>
+            </a>
+
+            <nav class="navlinks">
+                <a href="#sabores">Sabores</a>
+                <a href="#linhas">Produtos</a>
+                <a href="#personalize">Personalize</a>
+                <a href="#galeria">Galeria</a>
+            </nav>
+
+            <a href="#orcamento" class="nav-cta">Fazer meu bolo ↗</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="eyebrow">Confeitaria artesanal</span>
+                    <h1>A vida fica mais doce com <em>bolo de verdade.</em></h1>
+
+                    <p>
+                        Bolos personalizados para aniversários, festas e aqueles
+                        momentos que merecem virar uma lembrança deliciosa.
+                        Você imagina, a gente coloca a mão na massa.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#personalize" class="btn">Monte seu bolo <span>↗</span></a>
+                        <a href="#linhas" class="btn secondary">Conheça nossas linhas</a>
+                    </div>
+
+                    <div class="micro-proof">
+                        <div class="avatars">
+                            <span>♡</span><span>✿</span><span>★</span>
+                        </div>
+                        <span>Feito à mão, pensado para você.</span>
+                    </div>
+                </div>
+
+                <div class="hero-art">
+                    <div class="hero-photo">
+                        <img src="./images/foto1-hero.avif" alt="Bolo artesanal decorado para uma celebração">
+                    </div>
+                    <div class="sunburst">FEITO<br>COM<br>AFETO ✦</div>
+                    <div class="photo-label">Seu bolo, suas regras!<small>100% personalizado</small></div>
+                    <div class="scribble">Um pedacinho de felicidade 🎂</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section strip-section" id="sabores">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Escolha cada detalhe</span>
+                        <h2>SEU BOLO, DO SEU JEITO.</h2>
+                    </div>
+                    <p>Da primeira camada ao último confeito, cada escolha ajuda a criar um bolo com a sua
+                        personalidade.</p>
+                </div>
+
+                <div class="category-grid">
+                    <article class="category">
+                        <span class="number">01 / TAMANHOS</span>
+                        <h3>O tamanho ideal</h3>
+                        <p>Uma comemoração pequena ou uma festa cheia de convidados.</p>
+                    </article>
+                    <article class="category">
+                        <span class="number">02 / MASSAS</span>
+                        <h3>A base perfeita</h3>
+                        <p>Chocolate, baunilha e outras opções para combinar.</p>
+                    </article>
+                    <article class="category">
+                        <span class="number">03 / RECHEIOS</span>
+                        <h3>Camadas de sabor</h3>
+                        <p>Brigadeiro, ninho, doce de leite e muito mais.</p>
+                    </article>
+                    <article class="category">
+                        <span class="number">04 / COBERTURAS</span>
+                        <h3>O toque final</h3>
+                        <p>Buttercream, ganache ou acabamento rústico.</p>
+                    </article>
+                    <article class="category">
+                        <span class="number">05 / DETALHES</span>
+                        <h3>Com a sua cara</h3>
+                        <p>Cores, toppers e enfeites cheios de personalidade.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section products" id="linhas">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Um menu de possibilidades</span>
+                        <h2>LINHAS DE PRODUTOS</h2>
+                    </div>
+                    <p>Escolha sua linha favorita e transforme a ideia em uma celebração com a sua cara.</p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img loading="lazy" src="./images/foto1-produto.avif" alt="Bolo artesanal decorado">
+                            <span class="tag">VOCÊ NO COMANDO</span>
+                        </div>
+                        <div class="product-body">
+                            <h3>Monte seu bolo</h3>
+                            <p>Escolha tamanho, massa, recheio e acabamento. A combinação é sua.</p>
+                            <a class="text-link" href="#personalize">Começar a montar <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img loading="lazy" src="./images/foto2-produto.avif"
+                                alt="Bolo especial com decoração delicada">
+                            <span class="tag">EDIÇÕES AUTORAIS</span>
+                        </div>
+                        <div class="product-body">
+                            <h3>Linha especial</h3>
+                            <p>Criações sazonais, combinações surpreendentes e detalhes únicos.</p>
+                            <a class="text-link" href="#orcamento">Quero algo especial <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img loading="lazy" src="./images/foto3-produto.avif"
+                                alt="Doces artesanais para celebração">
+                            <span class="tag">FESTA COMPLETA</span>
+                        </div>
+                        <div class="product-body">
+                            <h3>Celebração &amp; doces</h3>
+                            <p>Bolo, docinhos e pequenos mimos para deixar a mesa inesquecível.</p>
+                            <a class="text-link" href="#orcamento">Planejar a festa <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img loading="lazy" src="./images/foto4-produto.avif" alt="Bolo elegante para evento">
+                            <span class="tag">COM PERSONALIDADE</span>
+                        </div>
+                        <div class="product-body">
+                            <h3>Linha corporativa</h3>
+                            <p>Presentes, eventos e comemorações de equipe com um toque artesanal.</p>
+                            <a class="text-link" href="#orcamento">Criar uma proposta <span>↗</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section custom" id="personalize">
+            <div class="wrap custom-grid">
+                <div class="custom-copy">
+                    <span class="eyebrow">Sua ideia, camada por camada</span>
+                    <h2>Vamos dar forma<br>à sua vontade?</h2>
+                    <p>Brinque com as combinações e veja seu bolo ganhar forma. É um rascunho delicioso para ajudar a
+                        imaginar sua criação.</p>
+
+                    <div class="custom-note">
+                        <strong>Um detalhe importante:</strong>
+                        esta experiência é demonstrativa. As opções finais,
+                        disponibilidade e valores são confirmados no orçamento.
+                    </div>
+                </div>
+
+                <div class="builder">
+                    <div class="builder-top">
+                        <h3>Meu bolo dos sonhos</h3>
+                        <span class="step-label">01 — 03</span>
+                    </div>
+
+                    <div class="field">
+                        <label>1. Qual é o tamanho?</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="size" value="Mini" data-detail="4–6 fatias"
+                                    checked><span>Mini · 4–6 fatias</span></label>
+                            <label class="option"><input type="radio" name="size" value="Médio"
+                                    data-detail="10–15 fatias"><span>Médio · 10–15 fatias</span></label>
+                            <label class="option"><input type="radio" name="size" value="Festa"
+                                    data-detail="20–30 fatias"><span>Festa · 20–30 fatias</span></label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>2. Escolha a massa</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="massa" value="Chocolate" checked><span>🍫
+                                    Chocolate</span></label>
+                            <label class="option"><input type="radio" name="massa" value="Baunilha"><span>🌼
+                                    Baunilha</span></label>
+                            <label class="option"><input type="radio" name="massa" value="Cenoura"><span>🥕
+                                    Cenoura</span></label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>3. O recheio que conquista</label>
+                        <div class="options">
+                            <label class="option"><input type="radio" name="recheio" value="Brigadeiro"
+                                    checked><span>Brigadeiro</span></label>
+                            <label class="option"><input type="radio" name="recheio" value="Ninho cremoso"><span>Ninho
+                                    cremoso</span></label>
+                            <label class="option"><input type="radio" name="recheio" value="Doce de leite"><span>Doce de
+                                    leite</span></label>
+                            <label class="option"><input type="radio" name="recheio"
+                                    value="Frutas vermelhas"><span>Frutas vermelhas</span></label>
+                        </div>
+                    </div>
+
+                    <div class="summary" aria-live="polite">
+                        <div>
+                            <small>Seu rascunho de pedido</small>
+                            <h4 id="summary-title">Bolo Mini de Chocolate</h4>
+                            <p id="summary-description">4–6 fatias · Massa de chocolate · Recheio de brigadeiro</p>
+                        </div>
+                        <div class="cake-icon" aria-hidden="true" id="cake-icon">🎂</div>
+                    </div>
+
+                    <button class="btn" style="width:100%;margin-top:15px" id="copy-order" type="button">
+                        Copiar resumo do meu bolo <span>↗</span>
+                    </button>
+
+                    <p class="builder-foot" id="copy-status" aria-live="polite">
+                        O botão copia suas escolhas para você usar ao solicitar um orçamento.
+                        Nenhum pedido será enviado automaticamente.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery" id="galeria">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Um pouco do nosso universo</span>
+                        <h2>Feitos pra olhar.<br>Difíceis de dividir.</h2>
+                    </div>
+                    <p>Cores, texturas e ideias que dão vontade de comemorar qualquer coisa.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img loading="lazy" src="./images/foto1-galeriaItem.webp"
+                            alt="Bolo de festa com decoração delicada">
+                        <span>Clássicos com personalidade</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="./images/foto2-galeriaItem.jpg" alt="Bolo artesanal decorado">
+                        <span>Detalhes feitos à mão</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="./images/foto3-galeriaItem.jpg" alt="Docinhos delicados">
+                        <span>Pequenas alegrias</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="./images/foto4-galeriaItem.jpg" alt="Bolo para uma ocasião especial">
+                        <span>Grandes celebrações</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="./images/foto5-galeriaItem.jpg" alt="Sobremesa artesanal colorida">
+                        <span>Um toque de cor</span>
+                    </div>
+                </div>
+
+                <div class="gallery-foot">
+                    <span>Seu evento, suas cores, sua história.</span>
+                    <strong>Feito com afeto, do começo ao último confeito ✦</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" id="orcamento">
+            <span class="cta-spark spark-one">✳</span>
+            <span class="cta-spark spark-two">✦</span>
+
+            <div class="wrap">
+                <span class="eyebrow">Bora transformar ideia em bolo?</span>
+                <h2>A próxima memória gostosa pode começar aqui.</h2>
+                <p>Conte o que você está imaginando e use seu rascunho como ponto de partida para conversar sobre
+                    possibilidades e orçamento.</p>
+                <a href="#personalize" class="btn">Montar meu bolo agora <span>↗</span></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#inicio" class="logo">Cake's by Sofi<span>um doce jeito de celebrar</span></a>
+                    <p>Confeitaria artesanal feita de criatividade, cuidado e boas histórias para dividir à mesa.</p>
+                </div>
+
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#sabores">Sabores e tamanhos</a></li>
+                        <li><a href="#linhas">Nossas linhas</a></li>
+                        <li><a href="#personalize">Monte seu bolo</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Fale com a gente</h4>
+                    <ul>
+                        <li>Contato: exemplo@cakesbysofi.com</li>
+                        <li>Instagram: @cakesbysofi.exemplo</li>
+                        <li>Atendimento: sob consulta</li>
+                    </ul>
+                    <p>Os dados de contato acima são fictícios e apenas demonstrativos.</p>
+                </div>
+            </div>
+
+            <p class="demo-note">
+                © 2026 Cake's by Sofi — marca fictícia criada para demonstração de vibecode.
+                Imagens ilustrativas. Este site não recebe nem envia pedidos e não possui
+                integração de pagamento ou mensageria.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const form = document.querySelector('.builder');
+            const title = document.getElementById('summary-title');
+            const desc = document.getElementById('summary-description');
+            const icon = document.getElementById('cake-icon');
+            const status = document.getElementById('copy-status');
+
+            function selected(name) {
+                const el = form.querySelector(
+                    'input[name="' + name + '"]:checked'
+                );
+                return el ? el.value : '';
+            }
+
+            function update() {
+                const size = form.querySelector('input[name="size"]:checked');
+                const massa = selected('massa');
+                const recheio = selected('recheio');
+                const sizeName = selected('size');
+                const portions = size ? size.dataset.detail : '';
+
+                title.textContent = 'Bolo ' + sizeName + ' de ' + massa;
+
+                desc.textContent =
+                    portions +
+                    ' · Massa de ' + massa.toLowerCase() +
+                    ' · Recheio de ' + recheio.toLowerCase();
+
+                icon.textContent =
+                    sizeName === 'Festa' ? '🎂' :
+                        sizeName === 'Médio' ? '🍰' : '🧁';
+
+                status.textContent =
+                    'O botão copia suas escolhas para você usar ao solicitar ' +
+                    'um orçamento. Nenhum pedido será enviado automaticamente.';
+            }
+
+            form.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.addEventListener('change', update);
+            });
+
+            document.getElementById('copy-order').addEventListener(
+                'click',
+                async function () {
+                    const summary = title.textContent + '\n' + desc.textContent;
+
+                    try {
+                        if (navigator.clipboard && window.isSecureContext) {
+                            await navigator.clipboard.writeText(summary);
+                            status.textContent =
+                                'Resumo copiado! Agora você pode colá-lo onde preferir.';
+                        } else {
+                            const ta = document.createElement('textarea');
+                            ta.value = summary;
+                            ta.style.position = 'fixed';
+                            ta.style.opacity = '0';
+                            document.body.appendChild(ta);
+                            ta.select();
+
+                            const ok = document.execCommand('copy');
+                            ta.remove();
+
+                            status.textContent = ok
+                                ? 'Resumo copiado! Agora você pode colá-lo onde preferir.'
+                                : 'Selecione e copie este resumo: ' + summary;
+                        }
+                    } catch (e) {
+                        status.textContent = 'Seu resumo: ' + summary;
+                    }
+                }
+            );
+
+            update();
+        })();
+    </script>
+
+</body>
+
+</html>

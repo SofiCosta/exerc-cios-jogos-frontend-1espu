@@ -1,0 +1,22 @@
+Nome: Sofia de Abreu Costa
+RM: 570339
+
+Ideias visuais da landing page:
+
+Referências de bolos e doces para inspirar o visual do site (anexadas na pasta).
+
+Cores utilizadas:
+
+Vermelho
+Amarelo
+Rosa
+Verde
+Marrom chocolate
+
+Textos para a IA:
+
+1° Crie uma landing page para uma confeitaria artesanal chamada Cake’s by Sofi, com um visual alegre, colorido e delicado. Quero que o site tenha cores que lembrem bolos, doces e confeitaria, com destaque para o vermelho, amarelo, rosa, verde e marrom chocolate. A página deve apresentar os produtos de forma bonita e organizada, com uma área inicial para destacar a marca, uma seção de linhas de produtos com quatro cards alinhados, uma galeria de fotos e uma parte para personalizar bolos, escolhendo opções como tamanho, massa e recheio.
+2° Quero que a página seja fácil de navegar e que os produtos tenham nomes, imagens e descrições curtas que despertem a vontade de comprar. Na parte de personalização, as opções devem funcionar e atualizar um resumo do bolo escolhido. Também quero botões para incentivar o cliente a entrar em contato e fazer um pedido.
+3° Organize os elementos para que os títulos, textos, imagens e cards fiquem bem alinhados, com tamanhos de fonte adequados e uma aparência profissional, mas sem perder o estilo artesanal da marca. Os quatro cards da seção “Linhas de Produtos” devem ficar alinhados na mesma linha em telas maiores e se adaptar a telas menores.
+
+Objetivo: Criar uma landing page atrativa para apresentar os produtos da Cake’s by Sofi, valorizar a identidade visual da confeitaria e facilitar o contato de quem deseja fazer uma encomenda.
